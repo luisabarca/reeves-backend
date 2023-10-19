@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p .",
+    "docker:build": "docker build --rm --no-cache -t kr-backend:latest .",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "author": "",
@@ -12,6 +15,7 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.9.4",
+    "@graphql-codegen/cli": "^5.0.0",
     "@types/body-parser": "^1.19.3",
     "@types/cors": "^2.8.14",
     "body-parser": "^1.20.2",
@@ -20,13 +24,12 @@
     "graphql": "^16.8.1"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/introspection": "4.0.0",
     "@graphql-codegen/typescript": "4.0.1",
     "@graphql-codegen/typescript-resolvers": "4.0.1",
     "@types/node": "^20.8.6",
     "graphql-codegen-typescript-common": "0.18.2",
     "tsx": "^3.13.0",
-    "typescript": "^5.2.2",
-    "@graphql-codegen/introspection": "4.0.0"
+    "typescript": "^5.2.2"
   }
 }
