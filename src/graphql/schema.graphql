@@ -1,0 +1,7 @@
+type Image {
+  url: String
+}
+
+type Query {
+  image(width: Int, height: Int, young: Boolean, grayScale: Boolean): Image
+}
