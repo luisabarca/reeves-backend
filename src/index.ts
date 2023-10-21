@@ -8,7 +8,7 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import { typeDefs, resolvers } from "./graphql";
-import { SERVER_PORT } from "./constants";
+import { BASE_URL, SERVER_PORT } from "./constants";
 
 (async () => {
   const app = express();
@@ -41,8 +41,8 @@ import { SERVER_PORT } from "./constants";
     "/graphql",
     cors({
       origin: [
+        BASE_URL,
         "http://localhost:3000",
-        "http://localhost:4000",
         "https://studio.apollographql.com",
       ],
     }),
